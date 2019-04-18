@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import random
 import pickle
 
@@ -6,10 +6,10 @@ import telebot
 from telebot import types
 from telebot.types import Message
 
-TOKEN = '386377468:AAHqCK1Xm0x_rBSvNRhDfM5v1Xzr2VfVTFw'
-STICKER_ID = 'CAADAgADXwMAAgw7AAEKTh8jAAH9Q-gAAQI'
+TOKENbot = 'somenumbers-letters'
+STICKER_ID = 'somenumbers-letters-itidsticker'
 
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot(TOKENbot)
 
 USERS = set()
 
@@ -23,8 +23,8 @@ def command_handler(message: Message):
 @bot.edited_message_handler(content_types=['text'])
 def echo_digits(message: Message):
     print(message.from_user.id)
-    if 'Alex Goodkid' in message.text:
-        bot.reply_to(message, 'Alex is good kid')
+    if 'New comand' in message.text:
+        bot.reply_to(message, 'Input new name of commands')
         return
     reply = str(random.random())
     if message.from_user.id in USERS:
@@ -49,4 +49,4 @@ def query_text(inline_query):
         print(e)
 
 
-bot.polling(timeout=60)
+bot.polling(timeout=30)
